@@ -3,10 +3,24 @@ const moment = require('moment');
 
 const reactionSchema = new Schema(
     {
-        reactionId: {},
-        reactionBody: {},
-        username: {},
-        createdAt: {}
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280
+        },
+        username: {
+            type: String,
+            required: true
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: timestamp => moment(timestamp).format('llll')
+        }
     }
 );
 
