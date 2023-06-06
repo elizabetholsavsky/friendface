@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const router = require('express').Router();
 
 // ********** /api/users **********
 
@@ -17,3 +17,5 @@ const User = require('../models/user');
 // POST add new friend to user friend list
 
 // DELETE remove friend from user friend list
+
+module.exports = router;
