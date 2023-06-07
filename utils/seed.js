@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const { User } = require('../models');
-// seed random users using faker npm
+const { User, Thought } = require('../models');
+// user faker npm to create random mock data
 const faker = require('faker');
 
-async function seedMockUsers() {
+async function seedMockData() {
     try {
         const userData = [];
 
@@ -19,36 +19,63 @@ async function seedMockUsers() {
             });
 
             userData.push(user);
-        }
+        };
 
         // save mock user data to the database
         const savedUsers = await User.create(userData);
         console.log(`${savedUsers.length} users created`);
+
+        // Seed thoughts for each user
+        for (const user of savedUsers) {
+            const thoughtCount = 5; // number of thoughts per user
+            const thoughts = [];
+
+            for (let i = 0; i < thoughtCount; i++) {
+                const thoughtText = faker.lorem.sentence();
+                const username = user.username;
+
+                const thought = new Thought({
+                    thoughtText,
+                    username,
+                });
+
+                thoughts.push(thought);
+            };
+
+        await Thought.create(thoughts);
+        console.log(`${thoughts.length} thoughts created for user ${user.username}`);
+        };
+
     } catch (err) {
-    console.error('Error seeding mock users', err);
+        console.error('Error seeding mock data', err);
+
     } finally {
     mongoose.disconnect();
     console.log('Disconnected from the database');
+
     }
 };
 
 async function connectAndSeed() {
     try {
         await mongoose.connect('mongodb://localhost:27017/SocialNetworkAPI', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         });
 
         console.log('Connected to the database');
 
         await User.createIndexes(); // Create indexes for the User model
 
-        await seedMockUsers();
+        await seedMockData();
+        
     } catch (err) {
         console.error('Error connecting to the database', err);
+
     } finally {
         mongoose.disconnect();
         console.log('Disconnected from the database');
+
     }
 };
 
