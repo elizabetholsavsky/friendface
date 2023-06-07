@@ -3,53 +3,54 @@ const User = require('../models/user');
 module.exports = {
     async getAllUsers(req, res) {
         try {
-
+            const users = await User.find();
+            res.json(users);
         } catch (err) {
             res.status(500).json(err);
         }
     },
-    async getSingleUser(req, res) {
-        try {
+    // async getSingleUser(req, res) {
+    //     try {
 
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
-    async createUser(req, res) {
-        try {
+    //     } catch (err) {
+    //         res.status(500).json(err);
+    //     }
+    // },
+    // async createUser(req, res) {
+    //     try {
 
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
-    async updateUser(req, res) {
-        try {
+    //     } catch (err) {
+    //         res.status(500).json(err);
+    //     }
+    // },
+    // async updateUser(req, res) {
+    //     try {
 
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
-    async removeUser(req, res) {
-        try {
+    //     } catch (err) {
+    //         res.status(500).json(err);
+    //     }
+    // },
+    // async removeUser(req, res) {
+    //     try {
 
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
-    async addFriend(req, res) {
-        try {
+    //     } catch (err) {
+    //         res.status(500).json(err);
+    //     }
+    // },
+    // async addFriend(req, res) {
+    //     try {
 
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
-    async deleteFriend(req, res) {
-        try {
+    //     } catch (err) {
+    //         res.status(500).json(err);
+    //     }
+    // },
+    // async deleteFriend(req, res) {
+    //     try {
 
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    },
+    //     } catch (err) {
+    //         res.status(500).json(err);
+    //     }
+    // },
 };
 
 // ********** /api/users **********
