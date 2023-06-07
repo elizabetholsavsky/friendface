@@ -29,7 +29,7 @@ Friendface is an API for a social network web application where users can share 
 * Check if you have Node.js installed by typing `node -v` in your command line. If node is not installed, visit the [Node.js](https://nodejs.org/en) website to install. 
 * Next, clone this project repository to your computer. 
 * Use the command `npm i` to install dependencies. 
-* Seed database with random mock data via [Faker-js](https://www.npmjs.com/package/@faker-js/faker)) using command `npm run seed`.
+* Seed database with random mock data via [Faker-js](https://www.npmjs.com/package/@faker-js/faker) using command `npm run seed`.
 
 ## Usage
 * Start server with command `npm start`.
