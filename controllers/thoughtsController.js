@@ -23,13 +23,16 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // async createThought(req, res) {
-    //     try {
 
-    //     } catch (err) {
-    //         res.status(500).json(err);
-    //     }
-    // },
+    async createThought(req, res) {
+        try {
+            const thoughtData = await Thought.create(req.body);
+            res.json(thoughtData);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
     // async updateThought(req, res) {
     //     try {
 
