@@ -25,7 +25,7 @@ async function seedMockData() {
         const savedUsers = await User.create(userData);
         console.log(`${savedUsers.length} users created`);
 
-        // Seed thoughts for each user
+        // seed thoughts for each user
         for (const user of savedUsers) {
             const thoughtCount = 5; // number of thoughts per user
             const thoughts = [];
@@ -41,19 +41,12 @@ async function seedMockData() {
 
                 thoughts.push(thought);
             };
-
         await Thought.create(thoughts);
         console.log(`${thoughts.length} thoughts created for user ${user.username}`);
         };
-
     } catch (err) {
         console.error('Error seeding mock data', err);
-
-    } finally {
-    mongoose.disconnect();
-    console.log('Disconnected from the database');
-
-    }
+    } 
 };
 
 async function connectAndSeed() {
@@ -66,16 +59,13 @@ async function connectAndSeed() {
         console.log('Connected to the database');
 
         await User.createIndexes(); // Create indexes for the User model
-
         await seedMockData();
         
     } catch (err) {
         console.error('Error connecting to the database', err);
-
     } finally {
         mongoose.disconnect();
         console.log('Disconnected from the database');
-
     }
 };
 
