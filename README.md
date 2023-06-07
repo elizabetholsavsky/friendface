@@ -15,6 +15,7 @@
 </div>
 
 ## Description
+Friendface is an API for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list. The backend application uses Express.js for routing, a MongoDB database, and the Mongoose ODM. Additionally, [Moment.js](https://momentjs.com/) is used to format dates and [Faker-js](https://www.npmjs.com/package/@faker-js/faker) is used to seed mock users and thoughts in the database.
 
 ## Table of Contents
 
@@ -28,13 +29,15 @@
 * Check if you have Node.js installed by typing `node -v` in your command line. If node is not installed, visit the [Node.js](https://nodejs.org/en) website to install. 
 * Next, clone this project repository to your computer. 
 * Use the command `npm i` to install dependencies. 
-* Seed database with command `npm run seed`. (Random seed data is created by the dependency [Faker-js](https://www.npmjs.com/package/@faker-js/faker)).
+* Seed database with random mock data via [Faker-js](https://www.npmjs.com/package/@faker-js/faker)) using command `npm run seed`.
 
 ## Usage
 * Start server with command `npm start`.
 * Alternatively, start server with Nodemon (and restart server automatically when making changes to code) with command `npm run dev`.
 * Access API routes with Insomnia, Postman, or other REST API testing client.
+ 
 [INSERT VIDEO]
+
 [INSERT TABLE OF ROUTES/JSON POSTS]
 
 ## License
