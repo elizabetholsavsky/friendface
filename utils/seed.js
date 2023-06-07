@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const { User, Thought } = require('../models');
-// user faker npm to create random mock data
 const faker = require('faker');
 
-async function seedMockData() {
+async function seedMockUsers() {
     try {
         const userData = [];
 
@@ -19,7 +18,7 @@ async function seedMockData() {
             });
 
             userData.push(user);
-        };
+        }
 
         // save mock user data to the database
         const savedUsers = await User.create(userData);
@@ -41,11 +40,16 @@ async function seedMockData() {
 
                 thoughts.push(thought);
             };
-        await Thought.create(thoughts);
-        console.log(`${thoughts.length} thoughts created for user ${user.username}`);
+
+            await Thought.create(thoughts);
+            console.log(`${thoughts.length} thoughts created for user ${user.username}`);
+
+            // update the user with the created thoughts
+            user.thoughts = thoughts.map((thought) => thought._id);
+            await user.save();
         };
     } catch (err) {
-        console.error('Error seeding mock data', err);
+        console.error('Error seeding mock users', err);
     } 
 };
 
@@ -58,9 +62,8 @@ async function connectAndSeed() {
 
         console.log('Connected to the database');
 
-        await User.createIndexes(); // Create indexes for the User model
-        await seedMockData();
-        
+        await User.createIndexes(); // create indexes for the User model
+        await seedMockUsers();
     } catch (err) {
         console.error('Error connecting to the database', err);
     } finally {
