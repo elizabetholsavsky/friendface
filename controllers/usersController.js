@@ -16,8 +16,9 @@ module.exports = {
             if (!user) {
                 return res.status(404).json({ message: 'No user with that ID' });
             }
-    
+
             res.json(user);
+
         } catch (err) {
             res.status(500).json(err);
         }
@@ -25,7 +26,9 @@ module.exports = {
     async createUser(req, res) {
         try {
             const userData = await User.create(req.body);
+
             res.json(userData);
+
         } catch (err) {
             res.status(500).json(err);
         }
@@ -41,8 +44,9 @@ module.exports = {
             if (!user) {
                 return res.status(404).json({ message: 'No user with that ID' });
             }
-    
+
             res.json(user);
+
         } catch (err) {
             res.status(500).json(err);
         }
@@ -56,18 +60,31 @@ module.exports = {
             }
     
             await Thought.deleteMany({ _id: { $in: user.thoughts } });
+
             res.json({ message: 'User and associated thoughts deleted!' })
+
         } catch (err) {
             res.status(500).json(err);
         }
     },
-    // async addFriend(req, res) {
-    //     try {
+    async addFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $push: { friends: req.params.friendId } },
+                { runValidators: true, new: true }
+            );
+    
+            if (!user) {
+                return res.status(404).json({ message: 'No user with that ID' });
+            }
 
-    //     } catch (err) {
-    //         res.status(500).json(err);
-    //     }
-    // },
+            res.json(user);
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
     // async deleteFriend(req, res) {
     //     try {
 
@@ -76,16 +93,6 @@ module.exports = {
     //     }
     // },
 };
-
-// ********** /api/users **********
-
-// GET single user by _id, populate thought and friend data
-
-// POST new user
-
-// PUT update user by _id
-
-// DELETE remove user by _id BONUS remove associated thoughts on deletion
 
 // ********** /api/users/:userId/friends/:friendId**********
 
