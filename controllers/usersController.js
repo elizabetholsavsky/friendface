@@ -22,13 +22,14 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // async createUser(req, res) {
-    //     try {
-
-    //     } catch (err) {
-    //         res.status(500).json(err);
-    //     }
-    // },
+    async createUser(req, res) {
+        try {
+            const userData = await User.create(req.body);
+            res.json(userData);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
     // async updateUser(req, res) {
     //     try {
 
