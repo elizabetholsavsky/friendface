@@ -93,7 +93,7 @@ module.exports = {
             );   
         
             if (!user) {
-                return res.status(404).json({ message: 'No user with that ID' });
+                return res.status(404).json({ message: 'Check user and friend ID!' });
             }
 
             res.json(user);
