@@ -7,7 +7,7 @@ const {
     removeThought,
     createReaction,
     removeReaction
-} = require('../../controllers/thoughtController');
+} = require('../../controllers/thoughtsController');
 
 /*    /api/thoughts    */
 router
