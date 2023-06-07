@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { User, Thought } = require('../models');
-const faker = require('faker');
+const { faker } = require('@faker-js/faker');
 
 async function seedMockUsers() {
     try {
