@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const {} = require('../../controllers/usersController');
 // ********** /api/users **********
 
 // GET all users

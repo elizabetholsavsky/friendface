@@ -1,5 +1,57 @@
 const User = require('../models/thoughts');
 
+module.exports = {
+    async getAllThoughts(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async getSingleThought(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async createThought(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async updateThought(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async removeThought(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async createReaction(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async removeReaction(req, res) {
+        try {
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+};
+
 // ********** /api/thoughts **********
 
 // GET all thoughts
