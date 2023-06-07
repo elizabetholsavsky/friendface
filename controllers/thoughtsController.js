@@ -65,13 +65,26 @@ module.exports = {
         }
     },
 
-    // async createReaction(req, res) {
-    //     try {
+    async createReaction(req, res) {
+        try {
+        const thought = await Thought
+            .findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $addToSet: { reactions: req.body} },
+            {  new: true })
+            .populate({path: 'reactions', select: '-__v'})
+            .select('-__v')
 
-    //     } catch (err) {
-    //         res.status(500).json(err);
-    //     }
-    // },
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought with that ID' });
+            }
+
+            res.json(thought);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
     // async removeReaction(req, res) {
     //     try {
 
@@ -80,18 +93,6 @@ module.exports = {
     //     }
     // },
 };
-
-// ********** /api/thoughts **********
-
-// GET all thoughts
-
-// GET single thought by _id
-
-// POST create new thought (push _id to user's thought array)
-
-// PUT update thought by _id
-
-// DELETE remove thought by _id
 
 // ********** /api/thoughts/:thoughtId/reactions **********
 
