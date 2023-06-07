@@ -9,13 +9,19 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // async getSingleUser(req, res) {
-    //     try {
-
-    //     } catch (err) {
-    //         res.status(500).json(err);
-    //     }
-    // },
+    async getSingleUser(req, res) {
+        try {
+            const user = await User.findOne({ _id: req.params.userId });
+    
+            if (!user) {
+                return res.status(404).json({ message: 'No user with that ID' });
+            }
+    
+            res.json(user);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
     // async createUser(req, res) {
     //     try {
 
@@ -55,15 +61,13 @@ module.exports = {
 
 // ********** /api/users **********
 
-// GET all users
-
 // GET single user by _id, populate thought and friend data
 
 // POST new user
 
 // PUT update user by _id
 
-// DELETE remove user by _i BONUS remove associated thoughts on deletion
+// DELETE remove user by _id BONUS remove associated thoughts on deletion
 
 // ********** /api/users/:userId/friends/:friendId**********
 
