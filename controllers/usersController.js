@@ -12,7 +12,11 @@ module.exports = {
 
     async getSingleUser(req, res) {
         try {
-            const user = await User.findOne({ _id: req.params.userId });
+            const user = await User
+                .findOne({ _id: req.params.userId })
+                .populate({ path: 'thoughts', select: '-__v' })
+                .populate({ path: 'friends', select: '-__v' });
+
 
             if (!user) {
                 return res.status(404).json({ message: 'No user with that ID' });
