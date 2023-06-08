@@ -31,7 +31,7 @@ module.exports = {
             const user = await User.findByIdAndUpdate(
                 req.body.userId,
                 { $addToSet: { thoughts: thought._id } },
-                { new: true }
+                { runValidators: true, new: true }
             );
 
             res.json({ thought, user });
@@ -78,7 +78,7 @@ module.exports = {
                 .findOneAndUpdate(
                 { _id: req.params.thoughtId },
                 { $addToSet: { reactions: req.body} },
-                {  new: true })
+                { runValidators: true, new: true })
                 .populate({path: 'reactions', select: '-__v'})
                 .select('-__v')
 
@@ -97,7 +97,7 @@ module.exports = {
             const thought = await Thought.findOneAndUpdate(
                 {_id: req.params.thoughtId},
                 {$pull: {reactions: {_id : req.params.reactionId}}},
-                { new: true, runValidators: true })
+                { runValidators: true, new: true })
 
             if (!thought) {
                 return res.status(404).json({ message: 'Check thought and reaction ID!' });

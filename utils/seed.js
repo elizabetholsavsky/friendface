@@ -11,7 +11,7 @@ async function seedMockUsers() {
             const username = faker.internet.userName();
             const email = faker.internet.email();
 
-            // create user object
+            // create User object
             const user = new User({
                 username,
                 email
@@ -33,6 +33,7 @@ async function seedMockUsers() {
                 const thoughtText = faker.lorem.sentence();
                 const username = user.username;
 
+                // create Thought object
                 const thought = new Thought({
                     thoughtText,
                     username,
@@ -62,7 +63,7 @@ async function connectAndSeed() {
 
         console.log('Connected to the database');
 
-        await User.createIndexes(); // create indexes for the User model
+        await User.createIndexes(); // create indexes for the User model (username, email)
         await seedMockUsers();
     } catch (err) {
         console.error('Error connecting to the database', err);

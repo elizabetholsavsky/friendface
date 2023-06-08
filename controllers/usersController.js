@@ -3,8 +3,8 @@ const { User, Thought } = require('../models');
 module.exports = {
     async getAllUsers(req, res) {
         try {
-            const users = await User.find();
-            res.json(users);
+            const user = await User.find();
+            res.json(user);
         } catch (err) {
             res.status(500).json(err);
         }
@@ -16,7 +16,6 @@ module.exports = {
                 .findOne({ _id: req.params.userId })
                 .populate({ path: 'thoughts', select: '-__v' })
                 .populate({ path: 'friends', select: '-__v' });
-
 
             if (!user) {
                 return res.status(404).json({ message: 'No user with that ID' });
@@ -30,8 +29,8 @@ module.exports = {
 
     async createUser(req, res) {
         try {
-            const userData = await User.create(req.body);
-            res.json(userData);
+            const user = await User.create(req.body);
+            res.json(user);
         } catch (err) {
             res.status(500).json(err);
         }
