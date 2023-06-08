@@ -40,7 +40,16 @@ Watch a [video](https://drive.google.com/file/d/1ovl1Py1NJAfmGoH2dBaoLTqZZ11tz2y
 
 https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4eba-ac26-0613210bca5d
 
-| POST AND PUSH ROUTES | URL                                                       | JSON                                                                            |
+**GET AND DELETE ROUTES**                                                                                                     
+| User            | URL                                  | Thought            | URL                                         |
+|-----------------|--------------------------------------|--------------------|---------------------------------------------|
+| Get All Users   | /api/users                           | Get All Thoughts   | /api/thoughts                               |
+| Get Single User | /api/users/:userId                   | Get Single Thought | /api/users/:thoughtId                       |
+| Delete User     | /api/users/:userId                   | Delete Thought     | /api/users/:thoughtId                       |
+| Delete Friend   | /api/users/:userId/friends/:friendId | Delete Reaction    | /api/users/:thoughtId/reactions/:reactionId |
+
+**POST AND PUSH ROUTES**        
+|                      | URL                                                       | JSON                                                                            |
 |----------------------|-----------------------------------------------------------|---------------------------------------------------------------------------------|
 | Create User          | /api/users                           | ```{ "username": "example", "email": "example@email.com" }```                   |
 | Update User          | /api/users/:userId                   | ```{ "username": "example", "email": "example@email.com" }```                   |
