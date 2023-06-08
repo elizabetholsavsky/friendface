@@ -40,7 +40,10 @@ Watch a [video](https://drive.google.com/file/d/1ovl1Py1NJAfmGoH2dBaoLTqZZ11tz2y
 
 https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4eba-ac26-0613210bca5d
 
-[INSERT TABLE OF ROUTES/JSON POSTS]
+| GET AND DELETE ROUTES       | User                                    | Thought                                    |
+|-----------------------------|-----------------------------------------|--------------------------------------------|
+| Get All                     | http://localhost:3001/api/users         | http://localhost:3001/api/thoughts         |
+| Get Single, Delete (by _id) | http://localhost:3001/api/users/:userId | http://localhost:3001/api/users/:thoughtId |
 
 ## License
 
