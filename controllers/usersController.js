@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { User, Thought } = require('../models/index');
 
 module.exports = {
     async getAllUsers(req, res) {
