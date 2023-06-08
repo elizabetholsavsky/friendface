@@ -56,7 +56,7 @@ https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4
 | Add Friend           | /api/users/:userId/friends/:friendId |                                                                                 |
 | Create Thought       | /api/thoughts                        | ```{ "thoughtText": "Lorem Ipsum", "username": "example", "userId": "123" }```  |
 | Update Thought       | /api/thoughts/:thoughtId             | ```{ "thoughtText": "Lorem Ipsum" }```                                          |
-| Create Reaction      | /api/thoughts/:thoughtId/reactions   | ```{ "reactionBody": "Lorem!", 	"username": "example" }```                      |
+| Create Reaction      | /api/thoughts/:thoughtId/reactions   | ```{ "reactionBody": "Lorem!", "username": "example" }```                      |
 
 
 ## License
@@ -67,7 +67,7 @@ https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4
 
 This application was created as part of a UT Full Stack Coding Bootcamp challenge.
 
-Tables in README created using [table-magic](https://github.com/stevecat/table-magic) by Steve GunTrip ([stevecat](https://github.com/stevecat)).
+Tables created using [table-magic](https://github.com/stevecat/table-magic) by Steve GunTrip ([stevecat](https://github.com/stevecat)).
 
 ## Questions
 
