@@ -36,7 +36,9 @@ Friendface is an API for a social network web application where users can share 
 * Alternatively, start server with Nodemon (and restart server automatically when making changes to code) with command `npm run dev`.
 * Access API routes with Insomnia, Postman, or other REST API testing client.
  
-[INSERT VIDEO]
+Watch a [video](https://drive.google.com/file/d/1ovl1Py1NJAfmGoH2dBaoLTqZZ11tz2y3/view?usp=sharing) demonstrating get, post, push, and delete routes for User and Thought models:
+
+https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4eba-ac26-0613210bca5d
 
 [INSERT TABLE OF ROUTES/JSON POSTS]
 
