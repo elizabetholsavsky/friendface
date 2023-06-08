@@ -40,10 +40,15 @@ Watch a [video](https://drive.google.com/file/d/1ovl1Py1NJAfmGoH2dBaoLTqZZ11tz2y
 
 https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4eba-ac26-0613210bca5d
 
-| GET AND DELETE ROUTES       | User                                    | Thought                                    |
-|-----------------------------|-----------------------------------------|--------------------------------------------|
-| Get All                     | http://localhost:3001/api/users         | http://localhost:3001/api/thoughts         |
-| Get Single, Delete (by _id) | http://localhost:3001/api/users/:userId | http://localhost:3001/api/users/:thoughtId |
+| POST AND PUSH ROUTES | URL                                                       | JSON                                                                            |
+|----------------------|-----------------------------------------------------------|---------------------------------------------------------------------------------|
+| Create User          | /api/users                           | ```{ "username": "example", "email": "example@email.com" }```                   |
+| Update User          | /api/users/:userId                   | ```{ "username": "example", "email": "example@email.com" }```                   |
+| Add Friend           | /api/users/:userId/friends/:friendId |                                                                                 |
+| Create Thought       | /api/thoughts                        | ```{ "thoughtText": "Lorem Ipsum", "username": "example", "userId": "123" }```  |
+| Update Thought       | /api/thoughts/:thoughtId             | ```{ "thoughtText": "Lorem Ipsum" }```                                          |
+| Create Reaction      | /api/thoughts/:thoughtId/reactions   | ```{ "reactionBody": "Lorem!", 	"username": "example" }```                      |
+
 
 ## License
 
