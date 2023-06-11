@@ -22,6 +22,11 @@ const reactionSchema = new Schema(
             get: timestamp => moment(timestamp).format('llll')
         }
     },
+    {
+        toJSON: {
+            getters: true,
+        },
+    }
 );
 
 const thoughtSchema = new Schema(
