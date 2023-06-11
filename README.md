@@ -36,9 +36,28 @@ Friendface is an API for a social network web application where users can share 
 * Alternatively, start server with Nodemon (and restart server automatically when making changes to code) with command `npm run dev`.
 * Access API routes with Insomnia, Postman, or other REST API testing client.
  
-[INSERT VIDEO]
+Watch a [video](https://drive.google.com/file/d/1ovl1Py1NJAfmGoH2dBaoLTqZZ11tz2y3/view?usp=sharing) demonstrating get, post, push, and delete routes for User and Thought models:
 
-[INSERT TABLE OF ROUTES/JSON POSTS]
+https://github.com/elizabetholsavsky/friendface/assets/116515976/b5c2d97d-3496-4eba-ac26-0613210bca5d
+
+**GET AND DELETE ROUTES**                                                                                                     
+| User            | URL                                  | Thought            | URL                                         |
+|-----------------|--------------------------------------|--------------------|---------------------------------------------|
+| Get All Users   | /api/users                           | Get All Thoughts   | /api/thoughts                               |
+| Get Single User | /api/users/:userId                   | Get Single Thought | /api/users/:thoughtId                       |
+| Delete User     | /api/users/:userId                   | Delete Thought     | /api/users/:thoughtId                       |
+| Delete Friend   | /api/users/:userId/friends/:friendId | Delete Reaction    | /api/users/:thoughtId/reactions/:reactionId |
+
+**POST AND PUSH ROUTES**        
+|                      | URL                                                       | JSON                                                                            |
+|----------------------|-----------------------------------------------------------|---------------------------------------------------------------------------------|
+| Create User          | /api/users                           | ```{ "username": "example", "email": "example@email.com" }```                   |
+| Update User          | /api/users/:userId                   | ```{ "username": "example", "email": "example@email.com" }```                   |
+| Add Friend           | /api/users/:userId/friends/:friendId |                                                                                 |
+| Create Thought       | /api/thoughts                        | ```{ "thoughtText": "Lorem Ipsum", "username": "example", "userId": "123" }```  |
+| Update Thought       | /api/thoughts/:thoughtId             | ```{ "thoughtText": "Lorem Ipsum" }```                                          |
+| Create Reaction      | /api/thoughts/:thoughtId/reactions   | ```{ "reactionBody": "Lorem!", "username": "example" }```                      |
+
 
 ## License
 
@@ -48,7 +67,7 @@ Friendface is an API for a social network web application where users can share 
 
 This application was created as part of a UT Full Stack Coding Bootcamp challenge.
 
-Tables in README created using [table-magic](https://github.com/stevecat/table-magic) by Steve GunTrip ([stevecat](https://github.com/stevecat)).
+Tables created using [table-magic](https://github.com/stevecat/table-magic) by Steve GunTrip ([stevecat](https://github.com/stevecat)).
 
 ## Questions
 
